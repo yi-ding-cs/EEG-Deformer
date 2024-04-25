@@ -3,30 +3,16 @@
 import torch
 from torch import nn
 
-from einops import rearrange, repeat
+from einops import rearrange
 from einops.layers.torch import Rearrange
 
-# helpers
 
 def pair(t):
     return t if isinstance(t, tuple) else (t, t)
 
-# classes
-
-
-class PreNorm(nn.Module):
-    def __init__(self, dim, fn):
-        super().__init__()
-        self.norm = nn.BatchNorm1d(64)
-        self.fn = fn
-
-    def forward(self, x, **kwargs):
-        return self.fn(x, **kwargs)
-        #return self.fn(self.norm(x), **kwargs)
-
 
 class FeedForward(nn.Module):
-    def __init__(self, dim, hidden_dim, dropout = 0.):
+    def __init__(self, dim, hidden_dim, dropout=0.):
         super().__init__()
         self.net = nn.Sequential(
             nn.LayerNorm(dim),
@@ -79,7 +65,7 @@ class Transformer(nn.Module):
                       kernel_size=kernel_size, padding=self.get_padding_1D(kernel=kernel_size)),
             nn.BatchNorm1d(in_chan),
             nn.ELU(),
-            nn.MaxPool2d((1, 2), stride=(1, 2))
+            nn.MaxPool1d(kernel_size=2, stride=2)
         )
 
     def __init__(self, dim, depth, heads, dim_head, mlp_dim, in_chan, fine_grained_kernel=11, dropout=0.):
@@ -111,7 +97,6 @@ class Transformer(nn.Module):
     def get_info(self, x):
         # x: b, k, l
         x = torch.log(torch.mean(x.pow(2), dim=-1))
-        # x = torch.std(x, dim=-1)   # b, k
         return x
 
     def get_padding_1D(self, kernel):
@@ -158,7 +143,7 @@ class Deformer(nn.Module):
         self.transformer = Transformer(
             dim=dim, depth=depth, heads=heads, dim_head=dim_head,
             mlp_dim=mlp_dim, dropout=dropout,
-            in_chan=num_kernel, fine_grained_kernel=temporal_kernel
+            in_chan=num_kernel, fine_grained_kernel=temporal_kernel,
         )
 
         L = self.get_hidden_size(input_size=dim, num_layer=depth)
@@ -179,7 +164,6 @@ class Deformer(nn.Module):
         b, n, _ = x.shape
         x += self.pos_embedding
         x = self.transformer(x)
-
         return self.mlp_head(x)
 
     def get_padding(self, kernel):
@@ -202,4 +186,3 @@ if __name__ == "__main__":
     print(count_parameters(emt))
 
     out = emt(data)
-    print('TBD')
