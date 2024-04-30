@@ -100,3 +100,16 @@ Please cite our paper if you use our code in your own work:
 TBD
 
 ```
+Please do cite the dataset paper if you use their data:
+```
+@article{cao2019multi,
+  title={Multi-channel {EEG} recordings during a sustained-attention driving task},
+  author={Cao, Zehong and Chuang, Chun-Hsiang and King, Jung-Kai and Lin, Chin-Teng},
+  journal={Scientific data},
+  volume={6},
+  number={1},
+  pages={1--8},
+  year={2019},
+  publisher={Nature Publishing Group}
+}
+```
