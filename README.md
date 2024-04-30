@@ -39,7 +39,7 @@ Install the requirements by:
 
 # Run the code
 Please download the pre-processed data for Fatigue dataset [here](). And put the upzipped foler inside the data_processed folder as
-
+<pre>
 Project/
 │
 ├── models/
@@ -54,7 +54,7 @@ Project/
 ├── utils.py
 ├── main_FATIG.py
 ├── requirements.txt
-
+</pre>
 You can run the code by: 
 
 > $ python3 main_FATIG.py --model Deformer --full-run 1
