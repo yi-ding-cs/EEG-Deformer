@@ -1,7 +1,7 @@
 # EEG-Deformer
 This is the PyTorch implementation of the EEG-Deformer in our paper:
 
-Yi Ding, Yong Li, Hao Sun, Rui Liu, Chengxuan Tong, Cuntai Guan, "EEG-Deformer: A Dense Convolutional Transformer for Brain-computer Interfaces". 
+Yi Ding, Yong Li, Hao Sun, Rui Liu, Chengxuan Tong, Cuntai Guan, ["EEG-Deformer: A Dense Convolutional Transformer for Brain-computer Interfaces"](https://drive.google.com/file/d/1KwPPSHN14MAbhszGqC1O5nRei7oqllxl/view?usp=sharing). 
 
 It is a Convolutional Transformer to decode mental states from Electroencephalography (EEG) for Brain-Computer Interfaces (BCI).
 # Comparison with different Transformers for EEG signals
