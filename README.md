@@ -97,7 +97,14 @@ preds = mynet(data)
 Please cite our paper if you use our code in your own work:
 
 ```
-TBD
+@misc{ding2024eegdeformer,
+      title={EEG-Deformer: A Dense Convolutional Transformer for Brain-computer Interfaces}, 
+      author={Yi Ding and Yong Li and Hao Sun and Rui Liu and Chengxuan Tong and Cuntai Guan},
+      year={2024},
+      eprint={2405.00719},
+      archivePrefix={arXiv},
+      primaryClass={eess.SP}
+}
 
 ```
 Please do cite the dataset paper if you use their data:
