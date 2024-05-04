@@ -1,7 +1,7 @@
 # EEG-Deformer
 This is the PyTorch implementation of the EEG-Deformer in our paper:
 
-Yi Ding, Yong Li, Hao Sun, Rui Liu, Chengxuan Tong, Cuntai Guan, ["EEG-Deformer: A Dense Convolutional Transformer for Brain-computer Interfaces"](https://arxiv.org/abs/2405.00719). 
+Yi Ding, Yong Li, Hao Sun, Rui Liu, Chengxuan Tong, and Cuntai Guan, ["EEG-Deformer: A Dense Convolutional Transformer for Brain-computer Interfaces"](https://arxiv.org/abs/2405.00719). 
 
 It is a Convolutional Transformer to decode mental states from Electroencephalography (EEG) for Brain-Computer Interfaces (BCI).
 # Comparison with different Transformers for EEG signals
@@ -38,7 +38,7 @@ Install the requirements by:
 > $ pip3 install -r requirements.txt
 
 # Run the code
-Please download the pre-processed data for Fatigue dataset [here](https://drive.google.com/file/d/1KwPPSHN14MAbhszGqC1O5nRei7oqllxl/view?usp=sharing). And put the upzipped foler inside the data_processed folder as
+Please download the pre-processed data for Fatigue dataset [here](https://drive.google.com/file/d/1KwPPSHN14MAbhszGqC1O5nRei7oqllxl/view?usp=sharing). And put the upzipped folder inside the data_processed folder as
 <pre>
 Project/
 │
@@ -59,7 +59,7 @@ You can run the code by:
 
 > $ python3 main_FATIG.py --model Deformer --full-run 1
 
-The results will be saved into a folder named logs_<dataset name>_<model_name>, e.g., logs_FATIG_Deformer. There will be a result.csv inside each sub-folder of logs_FATIG_Deformer.
+The results will be saved into a folder named logs_<dataset_name>_<model_name>, e.g., logs_FATIG_Deformer. There will be a result.csv inside each sub-folder of logs_FATIG_Deformer.
 
 # Apply EEG-Deformer to other datasets
 If you are interested to apply EEG-Deformer to other datasets, you can follow the below example. 
