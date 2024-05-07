@@ -34,7 +34,8 @@ def LOSO(test_idx: list, subjects: list, experiment_ID, logs_name, args):
     # train and test the model
     model = DLModel(config=args)
     checkpoint_callback = ModelCheckpoint(monitor="val_acc", mode='max')
-    logger = TensorBoardLogger(save_dir=os.getcwd(), version=experiment_ID, name=logs_name)
+    ensure_path(args.save_path)
+    logger = TensorBoardLogger(save_dir=args.save_path, version=experiment_ID, name=logs_name)
     # most basic trainer, uses good defaults (1 gpu)
     if args.mixed_precision:
         trainer = pl.Trainer(

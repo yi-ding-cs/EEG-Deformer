@@ -66,6 +66,6 @@ for sub in sub_to_run:
         test_idx=[sub], subjects=list(range(args.subjects)),
         experiment_ID='sub{}'.format(sub), args=args, logs_name=logs_name
     )
-    log_path = os.path.join(os.getcwd(), logs_name, 'sub{}'.format(sub))
+    log_path = os.path.join(args.save_path, logs_name, 'sub{}'.format(sub))
     ensure_path(log_path)
     log2csv(os.path.join(log_path, 'result.csv'), results[0])

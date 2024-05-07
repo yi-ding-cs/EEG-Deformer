@@ -29,7 +29,7 @@ parser.add_argument('--lr', type=float, default=1e-3)
 parser.add_argument('--dropout', type=float, default=0.5)
 parser.add_argument('--val-rate', type=float, default=0.2)
 
-parser.add_argument('--save-path', default='./save/')
+parser.add_argument('--save-path', default='./save/') # change this
 parser.add_argument('--load-path', default='./data_processed/') # change this
 parser.add_argument('--gpu', type=int, default=0)
 parser.add_argument('--mixed-precision', type=int, default=0)
@@ -67,6 +67,6 @@ for sub in sub_to_run:
         test_idx=[sub], subjects=all_sub_list,
         experiment_ID='sub{}'.format(sub), args=args, logs_name=logs_name
     )
-    log_path = os.path.join(os.getcwd(), logs_name, 'sub{}'.format(sub))
+    log_path = os.path.join(args.save_path, logs_name, 'sub{}'.format(sub))
     ensure_path(log_path)
     log2csv(os.path.join(log_path, 'result.csv'), results[0])
