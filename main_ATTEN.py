@@ -1,15 +1,14 @@
 from argparse import ArgumentParser
-from utils import get_task_chunk, log2csv, ensure_path
+from utils import log2csv, ensure_path
 import numpy as np
 from Task import LOSO
 import os
 
 parser = ArgumentParser()
-parser.add_argument('--task-ID', type=int, default=0, help='The experiment index. By setting this,'
-                                                           ' you can run LOSO on several machines by '
-                                                           'assign n subjects as one group to be the test subjects')
-parser.add_argument('--task-step', type=int, default=5, help='Every n subjects is within one task')
-parser.add_argument('--full-run', type=int, default=0, help='If it is set as 1, you will run LOSO on the same machine.')
+parser.add_argument('--full-run', type=int, default=1, help='If it is set as 1, you will run LOSO on the same machine.')
+parser.add_argument('--test-sub', type=int, default=0, help='If full-run is set as 0, you can use this to leave this '
+                                                            'subject only. Then you can divided LOSO on different '
+                                                            'machines')
 ######## Data ########
 parser.add_argument('--dataset', type=str, default='ATTEN')
 parser.add_argument('--subjects', type=int, default=26)
@@ -44,13 +43,24 @@ parser.add_argument('--num-layers', type=int, default=6)
 
 args = parser.parse_args()
 
+if args.model == 'TSception':
+    assert args.graph_type == 'TS', "When using TSception, suppose to get graph_type of 'TS'," \
+                                    " but get {} instead!".format(args.graph_type)
+    assert args.num_chan == 24, "When using TSception, suppose to have num_chan==24," \
+                                    " but get {} instead!".format(args.num_chan)
+
+if args.model == 'LGGNet':
+    assert args.graph_type in ['LGG-G', 'LGG-F', 'LGG-H'], "When using LGGNet, suppose to get graph_type " \
+                                                           "of 'LGG-X'(X=G, F, or H), but get {} " \
+                                                           "instead!".format(args.graph_type)
+
 if args.full_run:
-    TASK_CHUNK = np.arange(args.subjects)
+    sub_to_run = np.arange(args.subjects)
 else:
-    TASK_CHUNK = get_task_chunk(np.arange(args.subjects), step=args.task_step)
+    sub_to_run = [args.test_sub]
 
 logs_name = 'logs_{}_{}'.format(args.dataset, args.model)
-for sub in TASK_CHUNK[args.task_ID]:
+for sub in sub_to_run:
     results = LOSO(
         test_idx=[sub], subjects=list(range(args.subjects)),
         experiment_ID='sub{}'.format(sub), args=args, logs_name=logs_name
