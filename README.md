@@ -59,11 +59,11 @@ You can run the code by:
 
 > $ python3 main_FATIG.py --model Deformer --full-run 1
 
-The results will be saved into a folder named logs_<dataset_name>_<model_name>, e.g., logs_FATIG_Deformer. There will be a result.csv inside each sub-folder of logs_FATIG_Deformer.
+The results will be saved into a folder named logs_<dataset_name>_<model_name>, e.g., logs_FATIG_Deformer in <args.save_path, default: ./save/logs_FATIG_Deformer/>. There will be a result.csv inside each sub-folder (subn) of logs_FATIG_Deformer.
 
 After you finished all the training processes, you can use extract_results.py to calculate the mean metrics by:
 
-> $ python3 extract_results.py --save-path ./logs_FATIG_Deformer
+> $ python3 extract_results.py --save-path ./save/logs_FATIG_Deformer
 
 This will read all the result.csv files in the sub-folders within logs_FATIG_Deformer to calculate the mean ACCs and F1-macro scores.
 
