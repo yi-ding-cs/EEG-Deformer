@@ -79,7 +79,7 @@ data = torch.randn(1, 30, 384)  # (batch_size=1, EEG_channel=30, data_points=384
 mynet = Deformer(
     num_chan=30,
     num_time=384,
-    temporal_kernel=13,  # using odd number to ensure "same" padding 
+    temporal_kernel=13,  # Use an odd number to ensure 'same' padding. The temporal kernel is defined as Odd[0.1*fs], where fs is the sampling rate, and Odd[.] will get the closest odd number.
     num_kernel=64,
     num_classes=2,
     depth=4,
