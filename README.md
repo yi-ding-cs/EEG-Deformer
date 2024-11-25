@@ -1,7 +1,7 @@
 # EEG-Deformer
 This is the PyTorch implementation of the EEG-Deformer in our paper:
 
-Yi Ding, Yong Li, Hao Sun, Rui Liu, Chengxuan Tong, and Cuntai Guan, ["EEG-Deformer: A Dense Convolutional Transformer for Brain-computer Interfaces"](https://arxiv.org/abs/2405.00719). 
+Yi Ding, Yong Li, Hao Sun, Rui Liu, Chengxuan Tong, and Cuntai Guan, ["EEG-Deformer: A Dense Convolutional Transformer for Brain-computer Interfaces"](https://ieeexplore.ieee.org/document/10763464) in IEEE Journal of Biomedical and Health Informatics (J-BHI), 2024. 
 
 It is a Convolutional Transformer to decode mental states from Electroencephalography (EEG) for Brain-Computer Interfaces (BCI).
 # Comparison with different Transformers for EEG signals
@@ -103,14 +103,16 @@ preds = mynet(data)
 Please cite our paper if you use our code in your own work:
 
 ```
-@article{ding2024eegdeformer,
-      title={EEG-Deformer: A Dense Convolutional Transformer for Brain-computer Interfaces}, 
-      author={Yi Ding and Yong Li and Hao Sun and Rui Liu and Chengxuan Tong and Cuntai Guan},
-      year={2024},
-      eprint={2405.00719},
-      archivePrefix={arXiv},
-      primaryClass={eess.SP}
-}
+@ARTICLE{10763464,
+  author={Ding, Yi and Li, Yong and Sun, Hao and Liu, Rui and Tong, Chengxuan and Liu, Chenyu and Zhou, Xinliang and Guan, Cuntai},
+  journal={IEEE Journal of Biomedical and Health Informatics}, 
+  title={EEG-Deformer: A Dense Convolutional Transformer for Brain-Computer Interfaces}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={1-10},
+  keywords={Electroencephalography;Transformers;Decoding;Kernel;Feature extraction;Convolution;Purification;Convolutional neural networks;Electronics packaging;IP networks;Deep learning;electroencephalography;transformer},
+  doi={10.1109/JBHI.2024.3504604}}
 
 ```
 Please do cite the dataset paper if you use their data:
