@@ -15,7 +15,7 @@ It is a Convolutional Transformer to decode mental states from Electroencephalog
 
 # Network structure of EEG-Deformer
 <p align="center">
-<img src="./images/Figure2v6.pdf" width=900 align=center>
+<img src="./images/Fig2.png" width=900 align=center>
 </p>
 
 <p align="center">
