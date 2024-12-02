@@ -38,7 +38,7 @@ Install the requirements by:
 > $ pip3 install -r requirements.txt
 
 # Run the code
-Please download the pre-processed data for Fatigue dataset [here](https://drive.google.com/file/d/1KwPPSHN14MAbhszGqC1O5nRei7oqllxl/view?usp=sharing). And put the upzipped folder inside the data_processed folder as
+Please download the pre-processed data for Fatigue dataset [here](https://drive.google.com/file/d/1KwPPSHN14MAbhszGqC1O5nRei7oqllxl/view?usp=sharing) and Mental Workload dataset [here](https://drive.google.com/file/d/1vPLPfkICdlXmzrlnmdR5hTjG7lvhZ2fV/view?usp=sharing). And put the upzipped folder inside the data_processed folder as
 <pre>
 Project/
 │
@@ -48,11 +48,13 @@ Project/
 │   └── model_handler.py
 │
 ├── data_processed/
-│   └── data_eeg_FATIG_FTG/     #the unziped folder
+│   ├── data_eeg_FATIG_FTG/     #the unziped folder
+|   └── data_eeg_MWL_MW/
 │
 ├── Task.py
 ├── utils.py
 ├── main_FATIG.py
+├── main_MWL.py
 ├── requirements.txt
 </pre>
 You can run the code by: 
@@ -127,4 +129,17 @@ Please do cite the dataset paper if you use their data:
   year={2019},
   publisher={Nature Publishing Group}
 }
+@Article{data4010014,
+  AUTHOR = {Zyma, Igor and Tukaev, Sergii and Seleznov, Ivan and Kiyono, Ken and Popov, Anton and Chernykh, Mariia and Shpenkov, Oleksii},
+  TITLE = {Electroencephalograms during Mental Arithmetic Task Performance},
+  JOURNAL = {Data},
+  VOLUME = {4},
+  YEAR = {2019},
+  NUMBER = {1},
+  ARTICLE-NUMBER = {14},
+  URL = {https://www.mdpi.com/2306-5729/4/1/14},
+  ISSN = {2306-5729},
+  DOI = {10.3390/data4010014}
+}
+
 ```
