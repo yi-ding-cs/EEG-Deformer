@@ -4,6 +4,10 @@ This is the PyTorch implementation of the EEG-Deformer in our paper:
 Yi Ding, Yong Li, Hao Sun, Rui Liu, Chengxuan Tong, Chenyu Liu, Xinliang Zhou, and Cuntai Guan, ["EEG-Deformer: A Dense Convolutional Transformer for Brain-computer Interfaces"](https://ieeexplore.ieee.org/document/10763464) in IEEE Journal of Biomedical and Health Informatics (J-BHI), 2024. 
 
 It is a Convolutional Transformer to decode mental states from Electroencephalography (EEG) for Brain-Computer Interfaces (BCI).
+
+
+🔥 NEWS: The preprocessing code for attention dataset is released. It can be found at /prepare_dataset/Attention.py. 
+
 # Comparison with different Transformers for EEG signals
 <p align="center">
 <img src="./images/Fig1.png" width=450 align=center>
